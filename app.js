@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 
 const studentController = require("./controllers/studentController");
+const mentorController = require("./controllers/mentorController");
 
 const app = express();
 
@@ -26,6 +27,7 @@ mongoose.connect (
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 
 app.get("/",studentController.getStudents);
@@ -33,6 +35,8 @@ app.post("/students",studentController.createStudent);
 app.delete("/students/:id",studentController.deleteStudent);
 app.get("/students/:id/edit", studentController.getEditForm);
 app.put("/students/:id", studentController.updateStudent);
+
+app.post("/mentors",mentorController.createMentor);
 
 //const PORT = 3000;
 // dotenv file
