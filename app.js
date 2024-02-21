@@ -14,7 +14,7 @@ const dbUrl = process.env.DB_URL;
 
 mongoose.connect (
     dbUrl,
-    //Mongodb connection
+    
     //"mongodb://0.0.0.0:27017/student_db",
     //MONGODB ATLAS
    // "mongodb+srv://guvi:guvi@prabha.jfsmco9.mongodb.net/student_db",
